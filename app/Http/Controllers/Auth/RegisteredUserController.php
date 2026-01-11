@@ -45,13 +45,13 @@ class RegisteredUserController extends Controller
             'password_confirmation' => ['required', 'string', 'alpha_num', 'min:8', 'max:20'],
         ]);
 
-        User::create([
+        $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('added');
+        return redirect('added')->with('username', $user->username);
     }
 
     public function added(): View

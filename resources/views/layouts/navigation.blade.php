@@ -1,13 +1,21 @@
-        <div id="head">
-            <h1><a><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん</p>
-                </div>
-                <ul>
-                    <li><a href="">ホーム</a></li>
-                    <li><a href="">プロフィール</a></li>
-                    <li><a href="">ログアウト</a></li>
-                </ul>
-            </div>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+
+<div id="head">
+    <h1><a href="{{ route('top')}}">
+            <img src="{{ asset('images/atlas.png') }}">
+        </a></h1>
+    <div id="menu-container">
+        <div id="menu-title">
+            <p>{{ Auth::user()->username }} さん</p>
+            <span class="arrow"></span>
         </div>
+        <ul>
+            <li><a href="{{ url('/top') }}">HOME</a></li>
+            <li><a href="{{ url('/profile') }}">プロフィール編集</a></li>
+            <li><a href="{{ url('/logout') }}">ログアウト</a></li>
+        </ul>
+    </div>
+</div>

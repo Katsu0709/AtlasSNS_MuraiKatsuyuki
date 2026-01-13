@@ -64,6 +64,45 @@ header {
     margin: 0;
 }
 
+/* 矢印ｖ下向きの状態 */
+.arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(135deg);
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+/* 矢印Λに反転 */
 #menu-container.active .arrow {
     transform: rotate(-45deg);
+}
+
+/* アコーディオンメニュー　リスト全体の装飾 */
+#menu-container ul li {
+    border-bottom: 1px solid #eee;
+    /* 項目ごとの区切り線 */
+}
+
+#menu-container ul li:last-child {
+    border-bottom: none;
+    /* 最後の項目の線は消す */
+}
+
+#menu-container ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+/* マウスを乗せた時（ホバー）の色替え */
+#menu-container ul li a:hover {
+    background-color: #3366ff;
+    color: #fff;
 }

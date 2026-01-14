@@ -106,3 +106,251 @@ header {
     background-color: #3366ff;
     color: #fff;
 }
+
+/* 投稿フォーム */
+.post-container {
+    display: flex;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 5px solid #eee;
+}
+
+.post-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.post-form {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.post-form textarea {
+    width: 80%;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 10px;
+}
+
+.post-form textarea::placeholder {
+    color: #cccccc;
+}
+
+/* 投稿ボタン（画像）のスタイル */
+.post-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.post-btn img {
+    width: 50px;
+    transition: transform 0.2s;
+}
+
+.post-btn img:hover {
+    transform: scale(1.1);
+}
+
+/* 投稿内容一覧 */
+.post-item {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.post-right {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.post-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.post-date {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.post-actions {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.post-actions img {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.post-list {
+    padding-left: 50px;
+    background-color: #fff;
+}
+
+/* 投稿編集モーダル */
+/* モーダルのコンテンツボックス */
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    /* 横幅 */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #666;
+    /* 少し太めのグレー枠 */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    /* 影をつけると浮き出て見えます */
+}
+
+/* 入力欄をモーダルいっぱいに広げる */
+.modal_post {
+    width: 100%;
+    height: 150px;
+    /* 高さを指定 */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    /* サイズ変更を禁止 */
+    margin-bottom: 20px;
+}
+
+/* 編集ボタンを中央の下に置く */
+.modal__button-area {
+    text-align: center;
+}
+
+.modal__update-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.modal__update-btn img {
+    width: 40px;
+    /* サイズを小さく調整 */
+    transition: transform 0.2s;
+}
+
+.modal__update-btn img:hover {
+    transform: scale(1.1);
+}
+
+/* 「閉じる」のスタイル（中央揃え） */
+.modal__close-wrapper {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.js-modal-close {
+    color: #ff3333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* 削除ボタンのホバー設定 */
+.delete-btn {
+    position: relative;
+    display: inline-block;
+}
+
+/* ホバー用の画像を最初は消しておく */
+.trash-hover {
+    display: none;
+}
+
+/* ボタンにマウスがのったら画像を切り替える */
+.delete-btn:hover .trash-normal {
+    display: none;
+}
+
+.delete-btn:hover .trash-hover {
+    display: inline-block;
+}
+
+.post-actions img {
+    width: 40px;
+    vertical-align: middle;
+}
+
+/* 削除モーダル用 */
+.js-modal-delete {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__button-area .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100px;
+    transition: opacity 0.2s;
+}
+
+/* OKボタン */
+.btn-danger {
+    background-color: #186AC9;
+}
+
+/* キャンセルボタン */
+.btn-primary {
+    background-color: #eee;
+}
+
+.js-modal-delete .modal__content {
+    background: #fff;
+    padding: 40px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 400px;
+    border-radius: 8px;
+    border: 2px solid #666;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* テキストを左寄せにする */
+.js-modal-delete .modal__content p {
+    text-align: left;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ボタンエリアを右寄せにする */
+.js-modal-delete .modal__button-area {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

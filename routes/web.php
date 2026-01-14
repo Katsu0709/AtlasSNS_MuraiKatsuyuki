@@ -32,6 +32,18 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('follow-list', [PostsController::class, 'index']);
   Route::get('follower-list', [PostsController::class, 'index']);
+
+  Route::middleware('auth')->group(function () {
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy']);
+  });
+
+  Route::get('/search', [UsersController::class, 'index']);
+
+  Route::post('/post/create', [PostsController::class, 'postCreate']);
+
+  Route::post('/post/update', [PostsController::class, 'postUpdate']);
+
+  Route::get('/post/{id}/delete', [PostsController::class, 'postDelete']);
 });
 
 Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');

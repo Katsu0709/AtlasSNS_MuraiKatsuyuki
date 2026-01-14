@@ -1,8 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{{ asset('js/script.js') }}"></script>
-
 <div id="head">
     <h1><a href="{{ route('top')}}">
             <img src="{{ asset('images/atlas.png') }}">

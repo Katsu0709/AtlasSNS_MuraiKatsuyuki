@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('/post/update', [PostsController::class, 'postUpdate']);
 
   Route::get('/post/{id}/delete', [PostsController::class, 'postDelete']);
+
+  Route::get('/search', [UsersController::class, 'index']);
 });
 
 Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');

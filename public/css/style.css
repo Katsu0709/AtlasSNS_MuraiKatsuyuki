@@ -354,3 +354,73 @@ header {
     justify-content: flex-end;
     gap: 10px;
 }
+
+/* 検索フォーム */
+/* 検索エリア全体の囲い */
+.search-container {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* フォームの横並び設定 */
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+/* 検索入力欄 */
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* 検索ボタン */
+.search-btn {
+    background-color: #186AC9;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn img {
+    width: 25px;
+    height: 25px;
+}
+
+/* 検索結果画面 */
+/* ユーザー一覧のレイアウト */
+.users-list {
+    padding: 20px 50px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.search-word-display {
+    margin-left: 20px;
+    font-weight: bold;
+}

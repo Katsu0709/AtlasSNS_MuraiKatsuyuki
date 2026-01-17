@@ -44,4 +44,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
     }
+
+    // 自分がフォローしている人の中に、指定したIDのユーザーがいるか判定
+    public function isFollowing($user_id)
+    {
+        return $this->follows()->where('followed_id', $user_id)->exists();
+    }
 }

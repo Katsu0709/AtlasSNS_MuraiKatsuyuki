@@ -6,6 +6,7 @@ use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\FollowsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/post/{id}/delete', [PostsController::class, 'postDelete']);
 
   Route::get('/search', [UsersController::class, 'index']);
+
+  Route::post('/follow', [FollowsController::class, 'follow']);
+
+  Route::post('/unfollow', [FollowsController::class, 'unfollow']);
 });
 
 Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');

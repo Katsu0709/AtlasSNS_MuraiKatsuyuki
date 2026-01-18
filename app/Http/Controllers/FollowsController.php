@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 
 class FollowsController extends Controller
 {
-    //
+    // ログインユーザーがフォローしているユーザーをすべて取得
     public function followList()
     {
-        return view('follows.followList');
-    }
-    public function followerList()
-    {
-        return view('follows.followerList');
+        // 自分がフォローしている人のIDを配列で取得
+        $following_ids = auth()->user()->follows()->pluck('followed_id');
+
+        // そのIDに一致するユーザーの投稿を、新しい順に取得
+        $posts = \App\Models\Post::whereIn('user_id', $following_ids)->with('user')->latest()->get();
+
+        // 取得した投稿データをビューに渡す
+        return view('follows.followList', ['following_users' => auth()->user()->follows()->get(), 'posts' => $posts]);
     }
 
     // フォローする

@@ -19,6 +19,20 @@ class FollowsController extends Controller
         return view('follows.followList', ['following_users' => auth()->user()->follows()->get(), 'posts' => $posts]);
     }
 
+    public function followerList()
+    {
+        // 自分をフォローしてくれているユーザーを取得
+        $follower_users = auth()->user()->followers()->get();
+
+        // フォロワーたちのIDを配列で取得
+        $follower_ids = $follower_users->pluck('id');
+
+        // フォロワーたちの投稿を新しい順に取得
+        $posts = \App\Models\Post::whereIn('user_id', $follower_ids)->with('user')->latest()->get();
+
+        return view('follows.followerList', ['follower_users' => $follower_users, 'posts' => $posts]);
+    }
+
     // フォローする
     public function follow(Request $request)
     {

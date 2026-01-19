@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('top', [PostsController::class, 'index'])->name('top');
 
-  Route::get('profile', [ProfileController::class, 'profile']);
+  Route::get('profile/{id}', [ProfileController::class, 'profile']);
 
   Route::get('search', [UsersController::class, 'index']);
 

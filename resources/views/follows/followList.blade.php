@@ -17,7 +17,9 @@
       @foreach($posts as $post)
       <div class="post-item d-flex border-bottom p-3">
         <div class="post-icon me-3">
-          <img src="{{ asset('storage/' .$post->user->icon_image) }}">
+          <a href="{{ url('/profile/' .$post->user->id) }}">
+            <img src="{{ asset('storage/' .$post->user->icon_image) }}">
+          </a>
         </div>
 
         <div class="post-content">

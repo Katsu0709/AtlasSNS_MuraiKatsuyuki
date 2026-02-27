@@ -34,21 +34,33 @@
     <div id="container">
       {{ $slot }}
     </div>
-    <div id="side-bar">
+    <div id="side-bar" class="p-4 border-start">
       <div id="confirm">
-        <p>{{ Auth::user()->username }} さん</p>
-        <div>
-          <p>フォロー数</p>
-          <p>{{ Auth::user()->follows()->count() }}名</p>
+        <p class="mb-4">{{ Auth::user()->username }} さんの</p>
+
+        <div class="row mb-4 align-items-center">
+          <div class="col-6">フォロー数</div>
+          {{ Auth::user()->follows()->count() }}人
         </div>
-        <p class="btn"><a href="{{ url('/follow-list') }}">フォローリスト</a></p>
-        <div>
-          <p>フォロワー数</p>
-          <p>{{ Auth::user()->followers()->count() }}名</p>
+        <div class="text-end mb-4">
+          <a href="{{ url('/follow-list') }}" class="btn btn-primary btn-sm px-4">フォローリスト</a>
         </div>
-        <p class="btn"><a href="{{ url('/follower-list') }}">フォロワーリスト</a></p>
+
+        <div class="row mb-4 align-items-center">
+          <div class="col-6">フォロワー数</div>
+          {{ Auth::user()->followers()->count() }}人
+        </div>
+
+        <div class="text-end mb-4">
+          <a href="{{ url('/follower-list') }}" class="btn btn-primary btn-sm px-4">フォロワーリスト</a>
+        </div>
       </div>
-      <p class="btn"><a href="{{ url('/search') }}">ユーザー検索</a></p>
+
+      <hr class="my-8">
+
+      <div class="text-center">
+        <a href="{{ url('/search') }}" class="btn btn-primary px-6">ユーザー検索</a>
+      </div>
     </div>
   </div>
   <footer>

@@ -25,9 +25,9 @@
     </form>
   </div>
 
-  <div class="post-list">
+  <ul class="post-list">
     @foreach($posts as $post)
-    <div class="post-item">
+    <li class="post-item">
       <div class="post-left">
         <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="icon" class="user-icon">
       </div>
@@ -54,7 +54,7 @@
         </div>
         @endif
       </div>
-    </div>
+    </li>
     @endforeach
     <div class="modal js-modal">
       <div class="modal__bg js-modal-close"></div>
@@ -83,6 +83,6 @@
       </div>
     </div>
 
-  </div>
+  </ul>
 
 </x-login-layout>

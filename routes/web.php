@@ -27,6 +27,9 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('top', [PostsController::class, 'index'])->name('top');
 
+
+  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
   Route::get('profile/{id}', [ProfileController::class, 'profile']);
 
   Route::get('search', [UsersController::class, 'index']);
@@ -48,9 +51,9 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/search', [UsersController::class, 'index']);
 
-  Route::post('/follow', [FollowsController::class, 'follow']);
+  Route::post('/follow', [FollowsController::class, 'follow'])->name('follow');
 
-  Route::post('/unfollow', [FollowsController::class, 'unfollow']);
+  Route::post('/unfollow', [FollowsController::class, 'unfollow'])->name('unfollow');
 });
 
 Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');

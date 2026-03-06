@@ -5,7 +5,7 @@
 
 
       <div class="edit-user-icon">
-        <img src="{{ asset('storage/' .$user->icon_image) }}" class="user-icon">
+        <img src="{{ $user->getIconUrl() }}" class="user-icon">
       </div>
 
       <div class="edit-form-area">
@@ -32,21 +32,21 @@
           <div class="edit-item row mb-5">
             <label class="col-sm-4 col-form-label fw-bold">メールアドレス</label>
             <div class="col-sm-8">
-              <input type="email" name="mail" class="form-control bg-light" value="{{ old('mail', $user->email) }}">
+              <input type="email" name="email" class="form-control bg-light" value="{{ old('mail', $user->email) }}">
             </div>
           </div>
 
           <div class="edit-item row mb-5">
             <label class="col-sm-4 col-form-label fw-bold">パスワード</label>
             <div class="col-sm-8">
-              <input type="password" name="password" class="form-control bg-light">
+              <input type="new_password" name="new_password" class="form-control bg-light">
             </div>
           </div>
 
           <div class="edit-item row mb-5">
             <label class="col-sm-4 col-form-label fw-bold">パスワード確認</label>
             <div class="col-sm-8">
-              <input type="password" name="password_confirmation" class="form-control bg-light">
+              <input type="new_password" name="new_password_confirmation" class="form-control bg-light">
             </div>
           </div>
 

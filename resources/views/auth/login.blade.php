@@ -3,6 +3,17 @@
     <div class="auth-card p-5 shadow-lg rounded-5 " style=" width: 100%; max-width: 400px; margin-top: -20px;">
       <h3 class="text-center mb-4 ">Atlasへようこそ</h3>
 
+      @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul class="mb-0">
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+
+
       {!! Form::open(['url' => '/login']) !!}
 
       <div class="mb-4">
@@ -15,8 +26,8 @@
         {{ Form::password('password', ['class' => 'form-control form-control-lg', 'placeholder' => 'パスワード']) }}
       </div>
 
-      <div class="d-grid">
-        {{ Form::submit('ログイン', ['class' => 'btn btn-danger btn-lg']) }}
+      <div class="text-end">
+        {{ Form::submit('ログイン', ['class' => 'btn btn-danger btn-lg', 'style' => 'width: 50%;']) }}
       </div>
 
       <div class="text-center mt-4">

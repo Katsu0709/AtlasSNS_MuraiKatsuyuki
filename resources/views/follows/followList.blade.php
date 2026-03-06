@@ -4,10 +4,10 @@
 
     <div class="follow-header">
       <h2 class="mt-5 mb-5 me-4 fs-1 fw-strong">フォローリスト</h2>
-      <div class="follow-icons-container d-flex flex-wrap gap-3">
+      <div class="follow-icons-container">
         @foreach($following_users as $user)
         <a href="{{ url('/profile/'.$user->id) }}">
-          <img src="{{ asset('storage/'.$user->icon_image) }}" class="user-icon-list">
+          <img src="{{ $user->getIconUrl() }}" class="user-icon-list">
         </a>
         @endforeach
       </div>
@@ -17,7 +17,9 @@
       @foreach($posts as $post)
       <li class="post-item">
         <div class="post-left">
-          <img src="{{ asset('storage/' . $post->user->icon_image) }}" alt="icon" class="user-icon">
+          <a href="{{ url('/profile/' . $post->user->id) }}">
+            <img src="{{ $post->user->getIconUrl() }}" alt="icon" class="user-icon">
+          </a>
         </div>
 
         <div class="post-right">

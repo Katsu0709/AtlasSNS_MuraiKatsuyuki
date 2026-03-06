@@ -50,4 +50,14 @@ class User extends Authenticatable
     {
         return $this->follows()->where('followed_id', $user_id)->exists();
     }
+
+    // ユーザーのアイコンパスを取得する
+    public function getIconUrl()
+    {
+        // 画像が登録されていれば storageから、なければデフォルト画像を返す
+        if ($this->icon_image) {
+            return asset('storage/' . $this->icon_image);
+        }
+        return asset('images/icon1.png');
+    }
 }

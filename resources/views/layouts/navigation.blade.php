@@ -6,7 +6,7 @@
         <div id="menu-title">
             <p class="m-5">{{ Auth::user()->username }} さん</p>
             <span class="arrow"></span>
-            <img src="{{ asset('images/' . (Auth::user()->icon_image ?? 'icon1.png')) }}" class=" user-icon-header">
+            <img src="{{ Auth::user()->getIconUrl() }}" class="user-icon-header">
         </div>
         <ul>
             <li><a href="{{ url('/top') }}">HOME</a></li>

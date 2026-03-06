@@ -12,6 +12,7 @@
                 </ul>
             </div>
             @endif
+
             {!! Form::open(['url' => '/register', 'method' => 'POST']) !!}
 
             <div class="mb-4">
@@ -34,8 +35,8 @@
                 {{ Form::password('password_confirmation', ['class' => 'form-control form-control-lg', 'placeholder' => 'パスワード確認']) }}
             </div>
 
-            <div class="d-grid">
-                {{ Form::submit('新規登録', ['class' => 'btn btn-danger btn-lg']) }}
+            <div class="text-end">
+                {{ Form::submit('新規登録', ['class' => 'btn btn-danger btn-lg', 'style' => 'width: 50%;']) }}
             </div>
 
             <div class="text-center mt-4">

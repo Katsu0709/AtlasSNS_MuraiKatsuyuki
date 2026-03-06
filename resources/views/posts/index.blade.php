@@ -12,7 +12,9 @@
 
   <div class="post-container">
     <div class="post-icon">
-      <img src="{{ asset('images/' . Auth::user()->icon_image) }}" alt="user-icon">
+      <a href="{{ url('/profile/' . Auth::id()) }}">
+        <img src="{{ Auth::user()->getIconUrl() }}" alt="user-icon" class="user-icon">
+      </a>
     </div>
 
     <form action="{{ url('/post/create') }}" method="POST" class="post-form">
@@ -29,7 +31,9 @@
     @foreach($posts as $post)
     <li class="post-item">
       <div class="post-left">
-        <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="icon" class="user-icon">
+        <a href="{{ url('/profile/' . $post->user->id) }}">
+          <img src="{{ $post->user->getIconUrl() }}" alt="icon" class="user-icon">
+        </a>
       </div>
 
       <div class="post-right">

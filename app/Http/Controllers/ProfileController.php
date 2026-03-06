@@ -38,18 +38,11 @@ class ProfileController extends Controller
         $user = Auth::user();
         $request->validate([
             'username' => 'required|string|min:2|max:12',
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'min:5',
-                'max:40',
-                Rule::unique('users')->ignore($user->id),
-            ],
-            'password' => 'required|string|alpha_num|min:8|max:20|confirmed',
-            'password_confirmation' => 'required|string|alpha_num|min:8|max:20',
+            'email' => 'required|string|email|min:5|max:40|unique:users,email,' . $user->id,
+            'new_password' => 'required|string|alpha_num|min:8|max:20|confirmed',
+            'new_password_confirmation' => 'required|string|alpha_num|min:8|max:20',
             'bio' => 'nullable|string|max:150',
-            'icon_image' => 'nullable|image|mimes:jpg,png,bmp,fid,svg',
+            'icon_image' => 'nullable|image|mimes:jpg,png,bmp,gif,svg',
         ]);
 
         $user->username = $request->username;

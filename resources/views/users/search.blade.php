@@ -22,7 +22,7 @@
         @foreach($users as $user)
         <div class="user-item">
           <div class="user-info">
-            <img src="{{ asset('storage/'.$user->icon_image) }}" class="user-icon">
+            <img src="{{ $user->getIconUrl() }}" class="user-icon">
             <span class="user-name">{{ $user->username }}</span>
           </div>
 

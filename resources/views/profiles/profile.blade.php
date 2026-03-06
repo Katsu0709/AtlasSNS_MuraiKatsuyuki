@@ -5,7 +5,7 @@
       <div class="profile-info-content">
 
         <div class="profile-icon-box">
-          <img src="{{ asset('storage/' .$user->icon_image) }}" class="user-icon">
+          <img src="{{ $user->getIconUrl() }}" class="user-icon">
         </div>
 
         <div class="profile-details">
@@ -13,7 +13,7 @@
             <span class="profile-label">ユーザー名</span>
             <span class="profile-value">{{ $user->username }}</span>
           </div>
-          <div class="profile-row mt-4">
+          <div class="profile-row">
             <span class="profile-label">自己紹介</span>
             <span class="profile-value">{{ $user->bio ?? '自己紹介はまだありません。' }}</span>
           </div>
@@ -40,11 +40,21 @@
       </div>
     </div>
 
+    @if ($errors->any())
+    <div class="alert alert-danger mt-3 mx-auto" style="max-width: 80%;">
+      <ul class="mb-0">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <ul class="post-list">
       @foreach($posts as $post)
       <li class="post-item">
         <div class="post-left">
-          <img src="{{ asset('storage/' . $post->user->icon_image) }}" alt="icon" class="user-icon">
+          <img src="{{ $post->user->getIconUrl() }}" class="user-icon">
         </div>
 
         <div class="post-right">

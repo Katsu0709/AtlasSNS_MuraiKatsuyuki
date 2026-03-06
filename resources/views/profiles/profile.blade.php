@@ -16,27 +16,27 @@
           <div class="profile-row">
             <span class="profile-label">自己紹介</span>
             <span class="profile-value">{{ $user->bio ?? '自己紹介はまだありません。' }}</span>
+
+            <div class="profile-action">
+              @if(auth()->id() !== $user->id)
+              @if(auth()->user()->isFollowing($user->id))
+              <form action="{{ route('unfollow') }}" method="POST">
+                @csrf
+                <input type="hidden" name="followed_id" value="{{ $user->id }}">
+                <button type="submit" class="btn btn-danger unfollow-btn">フォロー解除</button>
+              </form>
+              @else
+              <form action="{{ route('follow') }}" method="POST">
+                @csrf
+                <input type="hidden" name="followed_id" value="{{ $user->id }}">
+                <button type="submit" class="btn btn-primary follow-btn">フォローする</button>
+              </form>
+              @endif
+              @endif
+            </div>
+
           </div>
         </div>
-
-        <div class="profile-action">
-          @if(auth()->id() !== $user->id)
-          @if(auth()->user()->isFollowing($user->id))
-          <form action="{{ route('unfollow') }}" method="POST">
-            @csrf
-            <input type="hidden" name="followed_id" value="{{ $user->id }}">
-            <button type="submit" class="btn btn-danger unfollow-btn">フォロー解除</button>
-          </form>
-          @else
-          <form action="{{ route('follow') }}" method="POST">
-            @csrf
-            <input type="hidden" name="followed_id" value="{{ $user->id }}">
-            <button type="submit" class="btn btn-primary follow-btn">フォローする</button>
-          </form>
-          @endif
-          @endif
-        </div>
-
       </div>
     </div>
 

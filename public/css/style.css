@@ -591,15 +591,15 @@ header h1 img {
 /* 相手のプロフィール画面 */
 .profile-header-area {
     background-color: #fff;
-    padding: 60px 80px;
+    padding: 50px 0 50px 0;
     border-bottom: 10px solid #eee;
 }
 
 .profile-info-content {
     display: flex;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    padding-left: 100px;
+    justify-content: space-between;
 }
 
 .profile-icon-box .user-icon,
@@ -616,7 +616,9 @@ header h1 img {
 }
 
 .profile-row {
+    position: relative;
     display: flex;
+    align-items: flex-start;
     font-size: 20px;
     margin-bottom: 15px;
 }
@@ -630,9 +632,16 @@ header h1 img {
 }
 
 .profile-value {
-    margin-left: 50px;
+    flex: 1;
+    margin: 0 150px 0 20px;
+    word-break: break-all;
+    flex-shrink: 0;
 }
 
 .profile-action {
-    align-self: flex-end;
+    position: absolute;
+    right: 0;
+    top: 0;
+    flex-shrink: 0;
+    padding-right: 10px;
 }

@@ -59,6 +59,6 @@ class User extends Authenticatable
         }
 
         // 画像がある場合はそのURLを返す
-        return asset('images/' . $this->icon_image);
+        return asset('storage/' . $this->icon_image);
     }
 }

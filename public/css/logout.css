@@ -27,6 +27,7 @@ header h1 img {
 /* 背景を斜めのグラデーションにする */
 .auth-wrapper {
     background: linear-gradient(180deg, #186AC9 15%, #ACCEF7 50%, #ffff66 100%);
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

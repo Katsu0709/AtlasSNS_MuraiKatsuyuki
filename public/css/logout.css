@@ -6,7 +6,6 @@ html {
 
 header {
     text-align: center;
-    padding-top: 50px;
 }
 
 /* ロゴ下の文字 */
@@ -31,6 +30,7 @@ header h1 img {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 /* カードの見た目を整える */

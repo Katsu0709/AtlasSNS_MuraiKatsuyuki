@@ -3,7 +3,7 @@
   <div class="follow-list bg-white">
 
     <div class="follow-header">
-      <h2 class="mt-5 mb-5 me-4 fs-1 fw-strong">フォローリスト</h2>
+      <h2 class="fs-1 fw-strong">フォローリスト</h2>
       <div class="follow-icons-container">
         @foreach($following_users as $user)
         <a href="{{ url('/profile/'.$user->id) }}">
